@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Little reasons ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#f3fff7;--b:#e2f7ea;--c:#d2eef2;--ink:#3f6657;--hd:#2f9a7a;--pc:#6f9a8b;--f1:#a8e3c5;--f2:#fff0a6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.8rem;width:100%}
+.fc{perspective:1000px;height:290px;cursor:pointer}
+.in{position:relative;height:100%;transition:transform 1s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.f .in{transform:rotateY(180deg)}
+.fr,.bk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.5rem;border-radius:28px;border:2px dashed var(--hd);background:rgba(255,255,255,.72);backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 20px 40px -24px rgba(20,70,50,.5)}
+.fr span{font-size:4.6rem;line-height:1;color:var(--hd);transition:transform .8s}
+.fc:hover .fr span{transform:rotate(90deg) scale(1.12)}
+.bk{transform:rotateY(180deg);background:rgba(255,255,255,.92);font-size:1.35rem;line-height:1.7}
+h3{font:700 1.8rem 'Kalam',cursive;color:var(--hd)}
+</style></head><body data-n="2" data-p="24"><main>
+<p class="cap rise">tap each flower to open it</p>
+<h2 class="rise" style="--i:1">little reasons I adore you</h2>
+<div class="grid" id="g"></div>
+<p class="cap" id="k">0 / 6 opened</p>
+<button class="next" data-to="page3.html" data-hold>one more page</button>
+</main><script src="common.js"></script><script>
+const C=[['तुम्हारी हँसी','जिस दिन तुम हँसती हो, उस दिन सब कुछ अच्छा लगता है।'],['तुम्हारी बातें','तुमसे बात करते हुए वक़्त कब बीत जाता है, पता ही नहीं चलता।'],['तुम्हारा दिल','तुम सबका इतना ख़्याल रखती हो कि बस, दिल भर आता है।'],['तुम्हारा साथ','तुम साथ हो तो हर मुश्किल थोड़ी आसान लगने लगती है।'],['तुम्हारी मुस्कान','वो एक मुस्कान ही काफ़ी है मेरा पूरा दिन बना देने के लिए।'],['बस तुम','क्योंकि तुम, तुम हो, और यही सबसे ख़ास बात है।']];
+const g=document.getElementById('g'),k=document.getElementById('k');let o=0;
+g.innerHTML=C.map(([t,b],i)=>`<div class="fc rise" style="--i:${i+2}"><div class="in"><div class="fr"><span>${'❀✿❁✾❃✽'[i]}</span><h3>${t}</h3></div><div class="bk"><p>${b}</p></div></div></div>`).join('');
+g.querySelectorAll('.fc').forEach(c=>c.onclick=()=>{c.classList.toggle('f');if(!c.dataset.o){c.dataset.o=1;k.textContent=++o+' / 6 opened';if(o==6){k.textContent='all opened, and there are still more reasons than petals ✿';nx.classList.add('show')}}});
+</script></body></html>

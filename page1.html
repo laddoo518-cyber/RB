@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Happy Birthday ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#f6f0ff;--b:#e9e1fb;--c:#d9e6ff;--ink:#5b5380;--hd:#7a5fd0;--pc:#8d86b3;--f1:#c9b8f5;--f2:#ffc9e0}
+#cd{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(.8rem,3vw,2rem)}
+.t{min-width:clamp(78px,17vw,170px);padding:1rem .6rem;border:2px dashed var(--hd);border-radius:255px 18px 225px 18px/18px 225px 18px 255px;background:rgba(255,255,255,.5)}
+.t b{display:block;font:700 clamp(2.6rem,8vw,5.4rem)/1 'Caveat',cursive;color:var(--hd)}
+.t small{font-size:1.05rem}
+.card{display:flex;flex-direction:column;gap:1.2rem}
+</style></head><body data-n="1" data-p="26"><main>
+<p class="cap rise">you made it in ✿</p>
+<h1 data-s>Happy Birthday, Riya!</h1>
+<p class="cap rise" style="--i:6">19 January, the day the world got a little brighter</p>
+<div class="card rise" style="--i:7"><p class="cap" id="cp">counting down to your day</p><div id="cd"></div></div>
+<button class="next" data-to="page2.html" data-after="4800">turn the page</button>
+</main><script src="common.js"></script><script>
+const n=new Date(),td=n.getMonth()==0&&n.getDate()==19;let T=new Date(n.getFullYear(),0,19);if(!td&&n>T)T=new Date(n.getFullYear()+1,0,19);
+const cd=document.getElementById('cd');
+if(td)document.getElementById('cp').remove();
+cd.innerHTML=td?'<h2>आज तुम्हारा दिन है! 🎂</h2>':['दिन','घंटे','मिनट','सेकंड'].map(l=>`<div class="t"><b>00</b><small>${l}</small></div>`).join('');
+const bs=cd.querySelectorAll('b');
+(function k(){if(td)return;const d=Math.max(0,T-new Date());[d/864e5,d/36e5%24,d/6e4%60,d/1e3%60].forEach((v,i)=>{const s=String(Math.floor(v)).padStart(2,'0');if(bs[i].textContent!=s){bs[i].textContent=s;bs[i].animate([{transform:'translateY(-14px)',opacity:.2},{transform:'none',opacity:1}],300)}});setTimeout(k,1000)})();
+</script></body></html>

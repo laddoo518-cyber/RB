@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For Riya ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#fff7ef;--b:#ffe8ee;--c:#fbd9e6;--ink:#7a5566;--hd:#c9577f;--pc:#a98794;--f1:#f6b3c6;--f2:#ffd8ab}
+.card{width:min(560px,92vw);display:flex;flex-direction:column;align-items:center;gap:1.3rem}
+input{width:100%;max-width:330px;font:700 3.2rem 'Caveat',cursive;letter-spacing:.5em;text-align:center;padding:.1em 0 .1em .5em;color:var(--hd);background:transparent;border:0;border-bottom:3px dashed var(--hd);outline:0}
+input::placeholder{color:#e2bccb}
+.shake{animation:sh .5s}
+@keyframes sh{20%,60%{transform:translateX(-12px)}40%,80%{transform:translateX(12px)}}
+#m{min-height:1.7em;font-size:1.1rem}
+</style></head><body data-gate="1" data-p="22"><main>
+<p class="cap rise">a little something, made only for</p>
+<h1 data-s>Riya ✿</h1>
+<div class="card rise" style="--i:4"><p>type the secret year to come in</p><input id="pw" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="····" aria-label="secret year"><button class="btn" id="u">unlock</button><small id="m">hint: the year you were born 🌼</small></div>
+</main><script src="common.js"></script><script>
+const pw=document.getElementById('pw'),m=document.getElementById('m');
+function chk(){if(pw.value==='2007'){sessionStorage.setItem('riya','1');m.textContent='yay… opening ✿';petals(45,true);setTimeout(()=>go('page1.html'),1000)}else{pw.classList.remove('shake');void pw.offsetWidth;pw.classList.add('shake');m.textContent='hmm, not quite… try again 🌸';pw.value=''}}
+document.getElementById('u').onclick=chk;
+pw.onkeydown=e=>{if(e.key=='Enter')chk()};
+pw.oninput=()=>{pw.value=pw.value.replace(/\D/g,'');if(pw.value.length==4)setTimeout(chk,250)};
+</script></body></html>

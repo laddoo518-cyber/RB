@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Make a wish ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#fff3e2;--b:#ffdcd9;--c:#d6e0ff;--ink:#6a4a56;--hd:#e0566b;--pc:#a88a86;--f1:#ffb199;--f2:#ffd36e}
+#cake{width:min(430px,86vw);height:auto;overflow:visible}
+#cake *{stroke:var(--pc);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+#cake .fm,#cake .sm{stroke:none}
+.fm{transform-box:fill-box;transform-origin:50% 100%;animation:fk .3s ease-in-out infinite alternate}
+@keyframes fk{to{transform:scale(.86,1.14) rotate(5deg)}}
+.off .fm{display:none}
+.sm{opacity:0}
+.off .sm{animation:sm 2.4s ease-out}
+@keyframes sm{0%{opacity:.8;transform:translateY(0)}100%{opacity:0;transform:translateY(-46px)}}
+.hw{position:relative;width:min(880px,94vw);font:400 clamp(1.6rem,3.6vw,2.6rem)/1.9 'Kalam',cursive;color:#5b3a78}
+.hw p{margin:0 0 .6em;visibility:hidden}
+</style></head><body data-n="4" data-p="30"><main>
+<p class="cap rise">last page, I promise ✿</p>
+<h2 class="rise" style="--i:1">make a wish, Riya…</h2>
+<svg id="cake" class="rise" style="--i:2" viewBox="0 0 320 270"><ellipse cx="160" cy="252" rx="145" ry="13" fill="rgba(90,50,60,.13)" style="stroke:none"/><rect x="38" y="165" width="244" height="82" rx="16" fill="#ffd3de"/><rect x="72" y="108" width="176" height="62" rx="14" fill="#fff1cf"/><path d="M72 124q11 20 22 0t22 0 22 0 22 0 22 0 22 0 22 0 22 0" fill="#fff"/><path d="M38 182q15.25 22 30.5 0t30.5 0 30.5 0 30.5 0 30.5 0 30.5 0 30.5 0 30.5 0" fill="#fff"/><rect x="116" y="62" width="10" height="48" rx="3" fill="#bfe3ff"/><ellipse class="fm" cx="121" cy="46" rx="6" ry="11" fill="#ffb84d"/><circle class="sm" cx="121" cy="40" r="5" fill="#9a8fa5"/><rect x="155" y="62" width="10" height="48" rx="3" fill="#ffc9dd"/><ellipse class="fm" cx="160" cy="46" rx="6" ry="11" fill="#ffb84d"/><circle class="sm" cx="160" cy="40" r="5" fill="#9a8fa5"/><rect x="194" y="62" width="10" height="48" rx="3" fill="#d6f5c8"/><ellipse class="fm" cx="199" cy="46" rx="6" ry="11" fill="#ffb84d"/><circle class="sm" cx="199" cy="40" r="5" fill="#9a8fa5"/></svg>
+<div class="rise" style="--i:3"><button class="btn" id="bl">blow the candles 🕯️</button></div>
+<div class="card hw" id="W" hidden><p>जन्मदिन मुबारक हो, रिया! 🎂</p><p>तुम्हारा हर आने वाला दिन फूलों जैसा खिला हुआ और रंगों से भरा हो। यूँ ही हँसती रहो, यूँ ही चमकती रहो।</p></div>
+<button class="next" data-to="index.html" data-hold>begin again</button>
+</main><script src="common.js"></script><script>
+const bl=document.getElementById('bl'),ck=document.getElementById('cake'),W=document.getElementById('W');
+function tune(){try{const a=new(window.AudioContext||window.webkitAudioContext)(),N=[[392,.4],[392,.2],[440,.6],[392,.6],[523,.6],[494,1.1],[392,.4],[392,.2],[440,.6],[392,.6],[587,.6],[523,1.1],[392,.4],[392,.2],[784,.6],[659,.6],[523,.6],[494,.6],[440,.8],[698,.4],[698,.2],[659,.6],[523,.6],[587,.6],[523,1.4]];let t=a.currentTime+.1;N.forEach(([f,d])=>{const o=a.createOscillator(),g=a.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+d*.95);o.connect(g).connect(a.destination);o.start(t);o.stop(t+d);t+=d})}catch(e){}}
+bl.onclick=()=>{bl.disabled=true;ck.classList.add('off');tune();petals(90,true);
+setTimeout(()=>{bl.parentNode.style.display='none';W.hidden=false;W.scrollIntoView({behavior:'smooth',block:'center'});(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>write(W,()=>nx.classList.add('show')))},1600)};
+</script></body></html>

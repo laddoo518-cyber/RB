@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A letter ✿</title><link rel="stylesheet" href="common.css"><style>
+body{--a:#fff8e8;--b:#f6e8cd;--c:#efdcc0;--ink:#6a5035;--hd:#9a6a3a;--pc:#9b8466;--f1:#f0c9a0;--f2:#cfe0f5}
+#env{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1.2rem;transition:transform 1s,opacity 1s}
+#env.gone{transform:translateY(30vh) scale(.7);opacity:0;pointer-events:none}
+.ev{position:relative;width:min(440px,82vw);aspect-ratio:3/2;background:linear-gradient(#f6e9d2,#ead7b5);border-radius:10px;box-shadow:0 30px 50px -25px rgba(80,50,10,.55);perspective:900px}
+.ev::before{content:'';position:absolute;inset:0;border-radius:10px;background:linear-gradient(to bottom right,transparent 49.5%,rgba(140,100,40,.22) 50%) left/50% 100% no-repeat,linear-gradient(to bottom left,transparent 49.5%,rgba(140,100,40,.22) 50%) right/50% 100% no-repeat}
+.fl{position:absolute;left:0;right:0;top:0;height:62%;background:#e5cfa5;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s}
+#env.open .fl{transform:rotateX(180deg)}
+.ev b{position:absolute;left:50%;top:50%;translate:-50% -50%;font-size:2.8rem;color:#c4577a;z-index:2;transition:opacity .5s;animation:hb 1.6s infinite}
+@keyframes hb{50%{scale:1.2}}
+#env.open b{opacity:0}
+.paper{display:none;position:relative;width:min(920px,94vw);padding:3.4rem 3rem 2.4rem 5.6rem;text-align:left;color:#22356b;font:400 clamp(1.5rem,3.2vw,2.3rem)/2.1 'Kalam',cursive;background-color:#fffdf6;background-image:linear-gradient(transparent calc(2.1em - 1px),rgba(120,150,210,.4) 0);background-size:100% 2.1em;background-origin:content-box;background-position:0 -.5em;border-radius:6px;box-shadow:0 2px 0 #eadfc6,0 30px 60px -25px rgba(70,45,10,.5);rotate:-.7deg}
+.paper::before{content:'';position:absolute;left:4.4rem;top:0;bottom:0;width:2px;background:rgba(224,110,110,.45)}
+.paper.in{display:block;animation:sl 1.3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes sl{from{opacity:0;translate:0 60vh;rotate:6deg}}
+.paper p{margin:0 0 2.1em;visibility:hidden}
+.paper p.s{margin:0}
+.paper .w{text-shadow:0 0 .6px rgba(20,35,100,.5)}
+.tip{opacity:.55;font-size:1rem}
+@media(max-width:600px){.paper{padding:2.2rem 1.1rem 1.6rem 2.8rem}.paper::before{left:2rem}}
+</style></head><body data-n="3" data-p="14"><main>
+<p class="cap rise" id="hint">a letter is waiting for you…</p>
+<div id="env" class="rise" style="--i:1"><div class="ev"><div class="fl"></div><b>♡</b></div><small>tap the envelope</small></div>
+<article class="paper" id="L">
+<p>प्यारी रिया,</p>
+<p>जन्मदिन मुबारक हो! आज १९ जनवरी है, साल का सबसे ख़ास दिन, जब इस दुनिया को तुम्हारी मुस्कान मिली।</p>
+<p>तुम मेरी सबसे अच्छी दोस्त हो, और मेरी सबसे पसंदीदा इंसान भी। तुम्हारी हँसी मेरे सबसे उदास दिन को भी रोशन कर देती है।</p>
+<p>तुम्हारे साथ बिताया हर पल मेरे लिए एक ख़ूबसूरत याद है। बस यही दुआ है कि तुम यूँ ही मुस्कुराती रहो, और तुम्हारे सारे सपने सच हों।</p>
+<p>यह छोटा-सा तोहफ़ा मैंने दिल से बनाया है, सिर्फ़ तुम्हारे लिए।</p>
+<p class="s">हमेशा तुम्हारा,</p>
+<p><!-- अपना नाम यहाँ लिखो -->तुम्हारा दोस्त ✿</p>
+</article>
+<small class="tip" id="tip" hidden>tap the letter to finish writing instantly</small>
+<button class="next" data-to="page4.html" data-hold>one last page</button>
+</main><script src="common.js"></script><script>
+const env=document.getElementById('env'),L=document.getElementById('L'),h=document.getElementById('hint'),tip=document.getElementById('tip');
+env.onclick=()=>{if(env.classList.contains('open'))return;env.classList.add('open');h.textContent='shhh… read it as it is written ✿';
+setTimeout(()=>env.classList.add('gone'),1000);
+setTimeout(()=>{env.style.display='none';L.classList.add('in');L.scrollIntoView({behavior:'smooth',block:'center'})},2000);
+setTimeout(()=>(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{tip.hidden=false;write(L,()=>{tip.hidden=true;nx.classList.add('show')})}),3500)};
+</script></body></html>
